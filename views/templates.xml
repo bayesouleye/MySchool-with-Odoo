@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+       <template id="MySchool.website">
+           <h1>Bienvenu a MySchool</h1>
+       </template>
+    </data>
+</odoo>

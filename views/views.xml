@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id ='menu' name="MySchool" groups="groupe_admin"/>
+
+        # vue Admin
+        <record id="menu_admin" model="ir.actions.act_window">
+                <field name="name">Admin</field>
+                <field name="res_model">myschool.admin</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+         # vue eleve
+        <record id="menu_eleve" model="ir.actions.act_window">
+                <field name="name">Eleves</field>
+                <field name="res_model">myschool.eleve</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+         # vue professeur
+        <record id="menu_prof" model="ir.actions.act_window">
+                <field name="name">Professeurs</field>
+                <field name="res_model">myschool.prof</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+         # vue parent
+        <record id="menu_parent" model="ir.actions.act_window">
+                <field name="name">Parents</field>
+                <field name="res_model">myschool.parent</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_user1" name="Utilisateurs" parent="menu" groups="groupe_admin"/>
+        <menuitem id="menu_admin1" name="Admin" action="menu_admin"  parent="menu_user1"  groups="groupe_admin"/>
+        <menuitem id="menu_eleve1" name="Eleves" action="menu_eleve" parent="menu_user1" groups="groupe_admin"/>
+        <menuitem id="menu_prof1" name="Professeurs" action="menu_prof" parent="menu_user1" groups="groupe_admin"/>
+        <menuitem id="menu_parent1" name="Parents" action="menu_parent" parent="menu_user1" groups="groupe_admin"/>
+
+        <record id="menu_user2" model='ir.ui.view'>
+           <field name="name">myschool.user.tree</field>
+            <field name="model">myschool.user</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="first_name"/>
+                   <field name="role"/>
+                    <field name="email"/>
+                    <field name="address"/>
+                    <field name="phone_number"/>
+                    <field name="password"/>
+                </tree>
+            </field>
+        </record>
+
+        # vue classes
+        <record id="menu_classe" model="ir.actions.act_window">
+                <field name="name">Classes</field>
+                <field name="res_model">myschool.classe</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_classe1"
+                name="Classes"
+                action="menu_classe"
+                groups="groupe_admin"
+                parent="menu"  />
+
+        <record id="menu_classe2" model='ir.ui.view'>
+            <field name="name">myschool.classe.tree</field>
+            <field name="model">myschool.classe</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="effectif"/>
+                </tree>
+            </field>
+        </record>
+
+        # vue matieres
+        <record id="menu_matiere" model="ir.actions.act_window">
+                <field name="name">Matieres</field>
+                <field name="res_model">myschool.classe</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_matiere1"
+                name="Matieres"
+                action="menu_matiere"
+                parent="menu"
+                groups="groupe_admin"/>
+
+        <record id="menu_matiere2" model='ir.ui.view'>
+            <field name="name">myschool.matiere.tree</field>
+            <field name="model">myschool.matiere</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        # vue notes
+        <record id="menu_note" model="ir.actions.act_window">
+                <field name="name">Notes</field>
+                <field name="res_model">myschool.note</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_note1"
+                name="Notes"
+                action="menu_note"
+                groups="groupe_admin"
+                parent="menu" />
+
+        <record id="menu_note2" model='ir.ui.view'>
+            <field name="name">myschool.note.tree</field>
+            <field name="model">myschool.note</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="valeur"/>
+                </tree>
+            </field>
+        </record>
+
+        # inscription
+        <record id="menu_inscription" model="ir.actions.act_window">
+                <field name="name">Inscription</field>
+                <field name="res_model">myschool.inscription</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_inscription1"
+                name="Inscription"
+                action="menu_inscription"
+                groups="groupe_admin"
+                parent="menu" />
+
+        <record id="menu_inscription2" model='ir.ui.view'>
+            <field name="name">myschool.inscription.tree</field>
+            <field name="model">myschool.inscription</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="createdAt"/>
+                    <field name="createdBy"/>
+                </tree>
+            </field>
+        </record>
+
+        # vue dossier
+        <record id="menu_dossier" model="ir.actions.act_window">
+                <field name="name">Dossiers</field>
+                <field name="res_model">myschool.dossier</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_dossier1"
+                name="Dossiers"
+                action="menu_dossier"
+                groups="groupe_admin"
+                parent="menu" />
+
+        <record id="menu_dossier2" model='ir.ui.view'>
+            <field name="name">myschool.dossier.tree</field>
+            <field name="model">myschool.dossier</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="createdAt"/>
+                    <field name="createdBy"/>
+                     <field name="updateAt"/>
+                    <field name="updateBy"/>
+                </tree>
+            </field>
+        </record>
+
+        # vue rapport
+        <record id="menu_rapport" model="ir.actions.act_window">
+                <field name="name">Rapports</field>
+                <field name="res_model">myschool.rapport</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_rapport1"
+                name="Rapports"
+                action="menu_rapport"
+                groups="groupe_admin"
+                parent="menu" />
+
+        <record id="menu_rapport2" model='ir.ui.view'>
+            <field name="name">myschool.rapport.tree</field>
+            <field name="model">myschool.rapport</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="createdAt"/>
+                    <field name="createdBy"/>
+                     <field name="updateAt"/>
+                    <field name="updateBy"/>
+                </tree>
+            </field>
+        </record>
+
+        # vue admission
+        <record id="menu_admission" model="ir.actions.act_window">
+                <field name="name">Admissions</field>
+                <field name="res_model">myschool.admission</field>
+                <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="menu_admission1"
+                name="Admissions"
+                action="menu_admission"
+                groups="groupe_admin"
+                parent="menu" />
+
+        <record id="menu_admission2" model='ir.ui.view'>
+            <field name="name">myschool.admission.tree</field>
+            <field name="model">myschool.admission</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="annee"/>
+                </tree>
+            </field>
+        </record>
+
+     </data>
+</odoo>
